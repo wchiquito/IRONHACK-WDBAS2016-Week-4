@@ -1,0 +1,26 @@
+<hr>
+<h3>New Bid</h3>
+<%= form_for(bid_new) do |b| %>
+  <% if bid_new.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bid_new.errors.count, "error") %> prohibited this bid_new from being saved:</h2>
+      <ul>
+      <% bid_new.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= label_tag :email %></td>
+        <td><%= email_field_tag 'user_email', nil, :class => 'text_field' %></td>
+        <td><%= label_tag 'Amount (greater than)' %></td>
+        <td><%= b.number_field :amount, :class => 'text_field', :step => 'any', :min => @min_amount %></td>
+        <td><%= b.submit %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= hidden_field_tag 'bid[product_id]', @product.id %>
+<% end %>

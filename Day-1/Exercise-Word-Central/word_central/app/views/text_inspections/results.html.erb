@@ -1,0 +1,5 @@
+<p>Text: <%= @text %></p>
+<p>Word count: <%= @word_count %></p>
+<p>Estimate reading time: <%= pluralize(@estimate_reading_time, 'second') %></p>
+<p>Word frequency: <%= @word_frequency %></p>
+<%= link_to 'Home', root_path %>

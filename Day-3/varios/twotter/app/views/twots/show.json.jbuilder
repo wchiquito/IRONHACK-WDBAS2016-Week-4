@@ -1,0 +1,1 @@
+json.partial! "twots/twot", twot: @twot

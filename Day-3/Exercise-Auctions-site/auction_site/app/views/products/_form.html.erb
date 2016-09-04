@@ -1,0 +1,41 @@
+<%= form_for(product) do |p| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= p.label :title %>
+    <%= p.text_field :title %>
+  </div>
+  <br>
+  <div class="field">
+    <%= p.label :description %>
+    <%= p.text_area :description, cols: 35, rows: 6 %>
+  </div>
+  <br>
+  <div class="field">
+    <%= p.label :deadline %>
+    <%= p.date_field :deadline %>
+  </div>
+  <br>
+  <div class="field">
+    <%= p.label :minimum_amount %>
+    <%= p.number_field :minimum_amount, :class => 'text_field', :step => 'any' %>
+  </div>
+  <br>
+  <div class="field">
+    <%= p.label :user %>
+    <%= p.select :user_id, User.all.collect{ |u| [u.name, u.id] } %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= p.submit %>
+  </div>
+<% end %>

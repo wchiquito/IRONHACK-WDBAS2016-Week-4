@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Twots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @twots.each do |twot| %>
+      <tr>
+        <td><%= twot.body %></td>
+        <td><%= link_to 'Show', twot %></td>
+        <td><%= link_to 'Edit', edit_twot_path(twot) %></td>
+        <td><%= link_to 'Destroy', twot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Twot', new_twot_path %>

@@ -1,0 +1,14 @@
+<%= form_for(@twot, url: '/projects/create') do |f| %>
+    <% if @twot.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@twot.errors.count, "error") %> prohibited this twot from being saved:</h2>
+            <ul>
+                <% @twot.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    Body: <%= f.text_field :body %>
+    <%= f.submit %>
+<% end %>

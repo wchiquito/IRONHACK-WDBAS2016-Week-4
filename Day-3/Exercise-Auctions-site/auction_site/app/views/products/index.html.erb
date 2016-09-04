@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<h1>Products (<%= @products_count %>)</h1>
+<%= link_to 'New Product', product_new_path %>
+<br><br>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Deadline</th>
+      <th>Minimum amount</th>
+      <th>UserName</th>
+      <th>Bids</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.title, product_path(product) %></td>
+        <td><%= link_to product.description, product_edit_path(product) %></td>
+        <td><%= product.deadline %></td>
+        <td><%= product.minimum_amount %></td>
+        <td><%= product.user.name %></td>
+        <td><%= product.bids.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

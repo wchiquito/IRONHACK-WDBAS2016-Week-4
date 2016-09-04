@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<h1>Show Product</h1>
+<%= link_to 'Edit', product_edit_path(@product) %>
+<p>
+    <strong>Title:</strong>
+    <%= @product.title %>
+</p>
+<p>
+    <strong>Description:</strong>
+    <%= @product.description %>
+</p>
+<p>
+    <strong>Deadline:</strong>
+    <%= @product.deadline %>
+</p>
+<p>
+    <strong>Minimum amount:</strong>
+    <%= @product.minimum_amount %>
+</p>
+<p>
+    <strong>User:</strong>
+    <%= @product.user.name %>
+</p>
+
+<% if @can_new_bids %>
+  <%= render 'bids/form', bid_new: @bid_new %>
+<% end %>
+<%= render 'bids/index', bids: @bids %>

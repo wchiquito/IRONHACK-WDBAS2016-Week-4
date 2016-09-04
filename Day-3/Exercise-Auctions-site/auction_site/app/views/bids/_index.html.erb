@@ -1,0 +1,19 @@
+<hr>
+<p id="notice"><%= notice %></p>
+<h3>Bids (<%= bids.count %>)</h3>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% bids.each do |bid| %>
+      <tr class='winning_bidder-<%= !@winning_bidder.nil? and @winning_bidder.include?(bid.id) ? 'true' : 'false' %>'>
+        <td><%= bid.user.name %></td>
+        <td><%= bid.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

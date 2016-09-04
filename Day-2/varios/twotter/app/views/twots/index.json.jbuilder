@@ -1,0 +1,1 @@
+json.array! @twots, partial: 'twots/twot', as: :twot
